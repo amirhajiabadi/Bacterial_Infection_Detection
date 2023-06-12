@@ -1,2 +1,2 @@
 # E.ColiDetection
-DNA Classification for Detecting E.Coli Deployed On AWS
+DNA Classification for E.Coli Detection Deployed On AWS
