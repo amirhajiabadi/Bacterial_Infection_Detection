@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bacterial_Infection_Detection</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            background-image: url("subtle-prism.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        div.container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        input.genome-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+
+        button.submit-button {
+            width: 150px;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #00B4CC;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        h2.prediction-result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input name="Name" type="text" class="genome-input" placeholder="Type the genome here">
+        <p>For example:</p>
+        <p>ttaacattaataaataaggaggctctaatggcactcattagccaatcaatcaagaac</p>
+        <p>ttactagcaatacgcttgcgttcggtggttaagtatgtataatgcgcgggcttgtcg</p>
+        <button type="submit" name="pred_button" class="submit-button">Submit</button>
+    </form>
+    {% if response %}
+        <h2 class="prediction-result">The person is infected: {{ response }}</h2>
+    {% else %}
+        <h2 class="prediction-result">The person is infected: {{ response }}</h2>
+    {% endif %}
+</div>
+</body>
+</html>
